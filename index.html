@@ -4,12 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="stylesheet.css">
-    <script type="text/javascript" src="Index.js"></script>
     <title>Lua Language & development</title>
 </head>
+<link rel="stylesheet" href="stylesheet.css">
+<script type="text/javascript" src="dom.js"></script>
+
 
 <body>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.8/clipboard.min.js"></script> -->
     <div id="bordo-ph">
         <div id="intro-Fund">
             <h1 id="intro">Il Linguaggio LUA</h1>
@@ -46,7 +48,7 @@
             </p>
         </div>
         <!-- Mon 11.40 22/01/2024: relative about intro part  -->
-        <div id="info">
+        <div class="info">
             <img src="/Media/Photo/triggered Barbero.jpg" alt="" class="photo2">
             <h2 class="historyTime">C'era una volta...il PUC-Rio </h2>
             <p id="historyFirst-Ph">
@@ -110,9 +112,185 @@
             </p>
             <h2>OutPut & Comments </h2>
             <p>
-                
-        </p>
+                Il primo commando da imparare è il <i>"print"</i>:
+                <br>è una funzione built-in che ti consente di mandare in output del testo o qualsiasi altra cosa si
+                voglia che verrà poi visualizzato sulla console.
+                <br>Quindi print ti stampa ona o più espressioni all'uscita standard (la console) e puoi farne
+                quanti te ne pare.
+                <br>La funzione <i>"print "</i> la si può usare per piu azioni, sempre legate però allo stampare
+                espressioni
+                sulla console, che vanno riportate tra le callbacks.
+                <br>Le applicazioni più comuni di questo commando sono:
+            <ol>
+                <li>Stampare un semplice messaggio sulla console :
+                    <br>
+                    <br>Es:
+                    <div class="code-container">
+                        <pre>
+                                <code id="printMess">
+                                    <span style="color:violet">print</span>( <span style="color: lightgreen ;">"Hello, World!"</span>)
+                                </code>
+                            </pre>
+                        <button id="btnprintMess" onclick="copyToClipBoard('printMess','btnprintMess')"> <img
+                                src="/Media/Photo/copy.png" alt="Copy Icon" class="copy-icon">Copy Code</button>
+                    </div>
+
+                </li>
+                <li>Stampare variabili:
+                    <br>
+                    <br>Es:
+                    <div class="code-container">
+                        <pre>
+                            <code id="printVar">
+                                <span style="color: orange;">local</span> <span>message</span> <span style="color: orange;">=</span> (<span style="color: lightgreen;">"Hello, World!"</span>) 
+                                <span  style="color: violet;">print</span> (<span>message</span>)
+                            </code>
+                        </pre>
+                        <button id="btnprintVar" onclick="copyToClipBoard(`printVar`, `BtnprintVar`)"> <img
+                                src="/Media/Photo/copy.png" alt="copy Icon" class="copy-icon"> Copy Code</button>
+                    </div>
+                </li>
+                <li>Stampare un numero:
+                    <br>
+                    <br>Es:
+                    <div class="code-container">
+                        <pre>
+                                <code id="printNumb">
+                                <span style="color: violet;">print</span> (<span style="color: yellow;">123</span>)
+                                </code>
+                            </pre>
+                        <button id="btnprintNumb" onclick="copyToClipBoard(`printNumb`, `btnprintNumb`)"> <img
+                                src="/Media/Photo/copy.png" alt="Copy Icon" class="copy-icon"> Copy Code</button>
+                    </div>
+                </li>
+                <li>Stampare un valore booleano:
+                    <br>
+                    <br>Es:
+                    <div class="code-container">
+                        <pre>
+                                <code id="printBool">
+                                    <span style="color: violet;">print</span> (<span style="color: lightsalmon">true</span>)
+                                </code>
+                            </pre>
+                        <button id="btnNumbPrint" onclick="copyToClipBoard(`printBool` , `btnNumbPrint`)"> <img
+                                src="/Media/Photo/copy.png" alt="" class="copy-icon"> Copy Code</button>
+                    </div>
+                </li>
+                <li>Stampare espressioni multiple:
+                    <br>
+                    <br>Es:
+                    <div class="code-container">
+                        <pre>
+                                <code id="printMultExp">
+                                    <span style="color: violet;">print</span>(<span style="color: lightgreen;">"Hello, World"</span>, <span style="color: yellow;">123</span>, <span style="color: lightsalmon;">true</span>)
+                                </code>
+                            </pre>
+                        <button id="btnMultiExpr" onclick="copyToClipBoard(`printMultExp` , `btnMultiExpr`)"> <img
+                                src="/Media/Photo/copy.png" alt="" class="copy-icon"> Copy Code</button>
+                    </div>
+                </li>
+                <li>Usare la formattazzione delle stringhe con il <i><b>`string.format`</b></i>:
+                    <br>
+                    <br>Es:
+                    <div class="code-container">
+                        <pre>
+                            <code id="strForm">
+                                    <span style="color: lightsalmon;">local</span> name <span style="color: lightsalmon;">=</span> <span style="color: lightgreen;">"John Doe"</span>
+                                    <span style="color: lightsalmon;">local</span> age <span style="color: lightsalmon;">=</span> <span style="color: yellow;">35</span>
+                                    <span style="color: violet;">print</span> (string.<span style="color: violet;">format</span>(<span style="color: lightgreen;">"Name:%S, Age: %d</span>, name, age))
+                            </code>
+                        </pre>
+                        <button id="btnStrFormPrint" onclick="copyToClipBoard(`strForm` , `btnStrFormPrint`)"> <img
+                                src="/Media/Photo/copy.png" alt="" class="copy-icon"> Copy Code</button>
+                    </div>
+                </li>
+                <li>Stampare il risultato di una funzione o espressione:
+                    <br>
+                    <br>Es:
+                    <div class="code-container">
+                        <pre>
+                            <code id="resFunExpr">
+                                <span style="color: lightsalmon;">local</span> x <span style="color: lightsalmon;">=</span> <span style="color: yellow;">5</span>
+                                <span style="color: lightsalmon;">local</span> y <span style="color: lightsalmon;">=</span> <span style="color: yellow;">10</span> 
+                                <span style="color: violet;">print</span>(<span style="color: lightgreen;">"The sum of"</span>, x,<span style="color: lightgreen;">"and"</span>, y,<span style="color: lightgreen;">"is"</span>, x <span style="color: lightsalmon;">+</span> y)
+                            </code>
+                        </pre>
+                        <button id="btnResFunExpr" onclick="copyToClipBoard(`resFunExpr` , `btnResFunExpr` )"> <img
+                                src="/Media/Photo/copy.png" alt="" class="copy-icon"> Copy Code </button>
+                    </div>
+
+                </li>
+                <li>Stamapare gli elementi di un array o di una table:
+                    <br>
+                    <br>Es:
+                    <div class="code-container">
+                        <pre>
+                            <code id="prArrTbl">
+                                <span style="color: lightsalmon;">local</span> tbl <span style="color: lightsalmon;">=</span>{<span style="color: yellow;">1</span>, <span style="color: yellow;">2</span>, <span style="color: yellow;">3</span>, <span style="color: yellow;">4</span>, <span style="color: yellow;">5</span>} 
+                                <span style="color: lightsalmon;">for</span> i, v <span style="color: lightsalmon;">in</span> <span style="color: violet;">ipars</span>(tbl)<span style="color: lightsalmon;">do</span> 
+                                <span style="color: violet;">print</span>(<span style="color: lightgreen;">"Element"</span>, i,<span style="color: lightgreen;">"has value"</span>, v)
+                                <span style="color: lightsalmon;">end</span>
+                            </code>
+                        </pre>
+                        <button id="btnPrArrTbl" onclick="copyToClipBoard(`prArrTbl` , `btnPrArrTbl`)"> <img
+                                src="/Media/Photo/copy.png" alt="" class="copy-icon"> Copy Code</button>
+                    </div>
+                </li>
+                <li>Stampare le chiavi e i valori di una table:
+                    <br>
+                    <br>Es:
+                    <div class="code-container">
+                        <pre>
+                            <code id="prKVal-tbl">
+                                <span style="color: lightsalmon;">local</span> tbl <span style="color: lightsalmon;">= </span>{a <span style="color: lightsalmon;">=</span> <span style="color: yellow;">1</span>, b <span style="color: lightsalmon;">=</span><span style="color: yellow;">2</span>, c <span style="color: lightsalmon;">=</span> <span style="color: yellow;">3</span>}  
+                                <span style="color: lightsalmon;">for </span>k, v <span style="color: lightsalmon;">in</span> <span style="color: violet;">pairs</span>(tbl) <span style="color: lightsalmon;">do</span>
+                                <span style="color: violet;">print</span>(<span style="color: lightgreen;">"Key"</span>, k,<span style="color: lightgreen;">"has value"</span>,v)
+                                <span style="color: lightsalmon;">end</span>
+                            </code>
+                        </pre>
+                        <button id="btnPrKVal-tbl" onclick="copyToClipBoard(`prKVal-tbl` , `btnPrKVal-tbl`)"><img
+                                src="/Media/Photo/copy.png" alt="" class="copy-icon"> Copy Code</button>
+                    </div>
+                </li>
+                <li>Usare il <i><b>'print'</b></i> per scopi di debbugging, al fine di vedere il vlaore di una variabile
+                    in un certo punto nel programma:
+                    <br>
+                    <br>Es:
+                    <div class="code-container">
+                        <pre>
+                            <code id="debugPurp">
+                                <span style="color: lightsalmon;">local</span> x <span style="color: lightsalmon;">=</span> <span style="color: yellow;">5</span> 
+                                <span style="color: violet;">print</span>(<span style="color: lightgreen;">"The value of x is:"</span>, x)
+                            </code>
+                        </pre>
+                        <button id="btnDebugPurp" onclick="copyToClipBoard(`debugPurp` , `btnDebugPurp`)"><img
+                                src="/Media/Photo/copy.png" alt="" class="copy-icon"> Copy Code</button>
+                    </div>
+                </li>
+            </ol>
+            <!-- Sat 17.16 03/02/2024: relative about the applications of print functions list  -->
+            Queste sono solo alcune delle applicazioni più comunemente usate della funzione print nel lua, poiché è una
+            funzione versatile che può essere usata per un infinità di scopi che vanno dal visualizzare i messaggi, al
+            debugging alle informazioni di logging.
+            Per quanto riguarda i commenti invece, si usano per commentare parti di codice e vengono utilizzati in vari
+            modi:
+            <ol>
+                <li>Commentare per fare una to do list su cosa c'è ancora da fare, mettendo in conto che quando si
+                    finisce una lavorazione non sempre il giorno dopo ci si ricorda dei propositi fatti qualche ora
+                    prima</li>
+                <li> Per fare dei suggerimenti e/o note sul codice </li>
+                <li>Per usarli, ad esempio, come dei "segnalibri" all'interno del codice per evitare di stare ore a
+                    capire cosa fa ogni singola funzione, array, tags(HTML) e riga di codice. Questi utilizzo è molto utile quando si
+                    hanno tante righe compilate e si voglia tornare indietro per modificare una singola o più parti del
+                    codice ma non ci si ricorda a cosa serve e soprattutto (in alcuni casi) dove inizia e dove finisce quella parte interessata.
+                </li>
+                <li></li>
+                <li></li>
+            </ol>
         </div>
+        <!-- Mon 12.16 29/01/2024: relative about the paragraph of otuput and comments -->
+        </p>
+    </div>
     </div>
     <!-- Mon 11.40 22/01/2024: relative about bonduaries and all paragraphs -->
 </body>
