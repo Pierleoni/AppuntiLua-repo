@@ -272,21 +272,131 @@
             Queste sono solo alcune delle applicazioni più comunemente usate della funzione print nel lua, poiché è una
             funzione versatile che può essere usata per un infinità di scopi che vanno dal visualizzare i messaggi, al
             debugging alle informazioni di logging.
-            Per quanto riguarda i commenti invece, si usano per commentare parti di codice e vengono utilizzati in vari
-            modi:
-            <ol>
-                <li>Commentare per fare una to do list su cosa c'è ancora da fare, mettendo in conto che quando si
-                    finisce una lavorazione non sempre il giorno dopo ci si ricorda dei propositi fatti qualche ora
-                    prima</li>
-                <li> Per fare dei suggerimenti e/o note sul codice </li>
-                <li>Per usarli, ad esempio, come dei "segnalibri" all'interno del codice per evitare di stare ore a
-                    capire cosa fa ogni singola funzione, array, tags(HTML) e riga di codice. Questi utilizzo è molto utile quando si
-                    hanno tante righe compilate e si voglia tornare indietro per modificare una singola o più parti del
-                    codice ma non ci si ricorda a cosa serve e soprattutto (in alcuni casi) dove inizia e dove finisce quella parte interessata.
-                </li>
-                <li></li>
-                <li></li>
-            </ol>
+            <div id="commPh-container">
+                <p id="phComm">
+                    Per quanto riguarda i commenti invece, si usano per commentare parti di codice e vengono utilizzati
+                    in vari
+                    modi:
+                <ol>
+                    <li>Commentare per fare una to do list su cosa c'è ancora da fare, mettendo in conto che quando si
+                        finisce una lavorazione non sempre il giorno dopo ci si ricorda dei propositi fatti qualche ora
+                        prima</li>
+                    <li> Per fare dei suggerimenti e/o note sul codice </li>
+                    <li>Per usarli, ad esempio, come dei "segnalibri" all'interno del codice: ciò è utile per evitare di
+                        stare ore a
+                        capire cosa fa ogni singola funzione, array, tags(HTML) e riga di codice. Questa applicazione è
+                        molto utile quando si
+                        hanno tante righe compilate e si voglia tornare indietro per modificare una singola riga o più
+                        parti del
+                        codice ma non ci si ricorda a cosa serve e soprattutto (in alcuni casi) dove inizia e dove
+                        finisce quella parte interessata.
+                    </li>
+                    <li>
+                        Un altra funzione è quella di disabilitare una sezione del codice
+                    </li>
+                </ol>
+                N.B.: queste applicazioni dei commenti non sono solo prerogativa del linguaggio lua ma anche di tutti
+                gli altri linguaggi
+                <!-- Sun 12.11 04/02/2024: relative about the comment aplications list  -->
+                I commmenti, nel linguaggio lua, vengono creati usando due trattini(--), o su VS tramite lo shortcut da
+                tastiera Ctrl+ù, e come per ogni linguaggio non vengono letti quindi vengono ignorati dal programma.
+                <br></br><img src="/Media/Photo/Lua print text.png" alt="" class="photo">
+                <br>Se decommentassimo il commento (Ctrl+ù+k) VS c'è lo sottilinerebbe in rosso, dandolo quindi come
+                errore perchè non sa quale'è il testo giusto, e se andassimo a visualizzarlo sulla console il risultato
+                sarebbe il seguente:
+                <br>
+                <br><img src="/Media/Photo/lua print text error.png" alt="lua print text error" class="photo">
+                <br>Ovviamente posso commentare tutte le sezioni di codice che voglio, ad esempio:
+                <br>
+                <br><img src="/Media/Photo/lua screenshot.png" alt="lua screenshot" class="photo">
+                <br>Questo è la parte di codice che usato per fare il primo esempio, ad ogni modo come si può vedere ho
+                commentato anche la seconda riga dove c'è il "print",
+                <br>se andassimo a visualizzare il file sulla console il programma verrà eseguito senza alcun output
+                perchè ho commentato quella riga e il programma l'ha saltata,
+                <br>questo perchè quando il programma vede un
+                commento salta la riga e va a quella o quelle successiva/e.
+                <br>
+                <br><img src="/Media/Photo/no output.png" alt="no output" class="photo">
+                <br>Ovviamente in questo caso si parla ancora di commenti <i>"single-line"</i>, difatto posso, ad
+                esempio, commentare anche sulla stessa riga del commando
+                <br>
+                <br><img src="/Media/Photo/Single Line comments.png" alt="Single Line comments" class="photo">
+                <br>Tuttavia esistono anche i commenti chiamati <i>"Block comments"</i> che sono i commenti multi linea,
+                cioè su più righe, ed si scrivono --[[]]:
+                <br>
+                <br><img src="/Media/Photo/block comments.png" alt="" class="photo">
+                <br>Quindi ricapitolando, esistono 2 tipi di commenti nel lua:
+                <ol>
+                    <li>Single-line comments:
+                        inziano con i due trattini e vengono eseguiti fino alla fine della riga
+                    </li>
+                    <li>Block comments:
+                        Iniziano con --[[ ]] e vengono eseguiti fino a dove sono state posizionate le ultime due square
+                        brackets
+                        (vedi esempio sopra)
+                    </li>
+                </ol>
+
+                Per fare un esempio pratico:
+                <div class="code-container">
+                    <pre>
+                        <code id="commEx">
+                            <span style="color: grey;">
+                            -- This is a single-line comment
+                            --[[
+                            This is a
+                            block comment
+                            --]]
+                            --[[
+                            You can also use block comments
+                            to comment out a piece of code
+                            --[[
+                            print(10)         -- no action (comment)
+                            --]]
+                            ---[[
+                            <span style="color: violet;">print</span>  ( <span style="color: yellow;">10</span> )       --> 10
+                            --]]
+                            ]]
+                            -- The following code will be executed </span>
+                            <span style="color: violet;">print</span>(<span style="color: lightgreen;">"Hello, World!" </span>)
+                        </code>
+                    </pre>
+                    <button id="btncommentsEx" onclick="copyToClipBoard(`commEx` , `btncommentsEx`)"><img
+                            src="/Media/Photo/copy.png" alt="" class="copy-icon"> Copy Code </button>
+                </div>
+                </p>
+            </div>
+            <!-- Sun 12.14 04/02/24 : relative about comments  -->
+            <div id="prMultiConcStr-container">
+                <p id="multiConcStr">
+                    Ritornando alla funzione di print, ci sono alcune occassioni in cui è utile stampare sulla console
+                    più stringhe insieme, e no non basta fare
+                    <br>
+                    <br><img src="/Media/Photo/print str concat.png" alt="" class="photo">
+                    <br>perchè verra visualizzato sulla console come:
+                    <br>
+                    <br><img src="/Media/Photo/print str concat output.png" alt="" class="photo">
+                    <br>e quindi come possiamo ben vedere la stringa viene giustamente visualizzata come due stringhe
+                    differenti perchè ho usato 2 volte la funzione print,
+                    quindi se volessi concatenare 2 stringhe tra loro, sulla stessa riga devo usare "..": questi due
+                    punti si usano nel lua per concatenare più stringhe tra loro.
+                    <br>
+                    <br><img src="/Media/Photo/concat str with print fun.png" alt="" class="photo">
+                    <br>Di conseguenza tutto ciò verrà visualizzato come:
+                    <br>
+                    <br><img src="/Media/Photo/concat str with print fun output.png" alt="" class="photo">
+                    !!N.B.!! da notare come, nell'esempio dove si vede l'interfaccia di VS, le virgolette abbiano tutte
+                    uno spazio dall'inizio della frase, questo perchè senno le concatenazione verrebbe visualizzata
+                    come:
+                    <br>
+                    <br><img src="/Media/Photo/conc str with pr fun output .png" alt="" class="photo">
+                    <br>Posso fare la stessa cosa con le virgolette alla fine di ogni parola/frase ma se lo facessi sia
+                    con le virgolette ad inizio frase che con quelle alla fine il risultato sarebbe:
+                    <br>
+                    <br><img src="/Media/Photo/conc str with pr fun output 2.png" alt="" class="photo">
+                    <br>come possiamo notare ho creato troppo spazio tra le singole frasi facendole visualizzare come sono scritte tra l'argomento di print. 
+                </p>
+            </div>
         </div>
         <!-- Mon 12.16 29/01/2024: relative about the paragraph of otuput and comments -->
         </p>

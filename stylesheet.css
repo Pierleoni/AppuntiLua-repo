@@ -71,7 +71,21 @@ a:active {
     border: 1px black;
 }
 
+.photo{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+    box-shadow: 3px 4px black;
+}
 
+.photo3{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+    box-shadow: 3px 4px black;
+}
 .info {
     background-image: linear-gradient(to left, #6e63a4 0%, #0b3165 50%);
     margin: 3rem;
@@ -93,7 +107,7 @@ a:active {
 }
 
 .code-container{
-    margin: 22rem;
+    margin: 5rem;
     padding: 0.5rem;
     position: relative;
     display: flex;
