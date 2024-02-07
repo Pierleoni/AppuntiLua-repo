@@ -24,7 +24,7 @@ html {
 
 html,
 body {
-    background-color: var(--backgroundcolor);
+    background-image: var(--background);
     padding: 0;
     margin: 1;
 }
@@ -65,7 +65,7 @@ a:active {
 }
 
 #bordo-ph {
-    background-image: var(--background);
+    
     margin: 0rem;
     padding: 0rem;
     border: 1px black;
